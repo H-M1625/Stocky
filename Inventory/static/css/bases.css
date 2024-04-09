@@ -1,0 +1,158 @@
+/* Reset default styles */
+body, h1, p, header, main, footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+header {
+    text-align: left;
+}
+
+main {
+    margin-top: 20px;
+    padding-left: 220px;
+}
+
+#login-message {
+    color: #666;
+    margin-top: 20px;
+}
+
+/* CSS for the footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0; /* Adjust background color as needed */
+    text-align: center;
+    padding: 10px 0; /* Add padding for spacing */
+}
+
+footer p {
+    margin: 0; /* Remove default margin */
+}
+
+/* Ensure that the footer does not overlap content */
+main {
+    padding-bottom: 50px; /* Adjust padding to match footer height */
+}
+
+
+
+
+
+/* Sidebar styles */
+.sidebar {
+    font-family: Arial, sans-serif;
+    width: 210px; /* Adjust width as needed */
+    background-color: #003366; /* Dark blue */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 1000; /* Ensure the sidebar is above other content */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.sidebar h1 {
+    color: #fff; /* White text */
+    margin-bottom: 40px;
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    font-family: 'Open Sans', sans-serif; /* Specify the desired font */
+}
+
+.sidebar h1 a {
+    color: #fff; /* White text */
+    text-decoration: none;
+}
+
+.sidebar h1 a:hover {
+    text-decoration: underline;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #fff; /* White text */
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar p {
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px 50px; /* Adjust padding as needed */
+    text-align: left; /* Center text */
+    font-size: 11px; /* Specify a smaller font size */
+}
+
+
+/* CSS for the login message */
+#login-message {
+    color: #fff; /* Change text color if needed */
+    background-color:  #007bff; /* Light blue background color */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Add rounded corners */
+    text-align: center; /* Center text */
+    margin: 20px auto; /* Center horizontally */
+    max-width: 300px; /* Limit width to prevent stretching */
+    position: absolute; /* Position absolute to position it relative to the nearest positioned ancestor (the body) */
+    top: 30%; /* Move the element vertically down by 50% of the body's height */
+    left: calc(50% ); /* Move the element horizontally right by 50% of the body's width plus the width of the sidebar */
+    transform: translateY(-50%); /* Adjust vertically to center */
+}
+
+
+#login-message a {
+    color: #cfdae2f8; /* Change link color */
+    text-decoration: none; /* Remove underline */
+    font-style: italic;
+    font-weight: bold;
+}
+
+#login-message a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+
+
+#logout-form {
+    position: fixed;
+    top: 20px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
+    background-color: #e80b0b; /* Red background color */
+    
+    border-radius: 5px; /* Add rounded corners */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+#logout-form button {
+    background-color: transparent;
+    border: none;
+    color: #fff; /* White text color */
+    font-size: 14px; /* Adjust font size as needed */
+    cursor: pointer;
+}
+#logout-form button:hover {
+    background-color: #ad0505; /* Darken background color on hover */
+}

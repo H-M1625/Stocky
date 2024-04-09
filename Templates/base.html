@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocky</title>
+    <link rel="stylesheet" href="{% static 'css/bases.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/recipe.css' %}">
+    <h1> W</h1>
+
+</head>
+<body>
+
+    <nav class="sidebar">
+        <ul>
+            <h1><a href="{% url 'index' %}">Stocky</a></h1>
+            <li><a href="{% url 'stock' %}">Add Product</a></li>
+            <li><a href="{% url 'stock_view' %}">Full Inventory</a></li>
+            <li><a href="{% url 'recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'menu' %}">Menu</a></li>
+            <li><a href="{% url 'sales' %}">Sales</a></li>
+            <li><a href="{% url 'day_sales' %}">Sales of the day</a></li>
+        </ul>
+        <p>&copy; 2024 Stocky. <br> All rights reserved.</p>
+    </nav>
+
+    <main>
+        <div class="main-content"></div>
+        {% block login %}
+        {% endblock login %}
+
+
+        {% if user.is_authenticated %}
+
+        
+ 
+        {% block content %}
+        {% endblock content %}
+
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
+
+
+        {% else %}
+            {% if request.path != '/login/' and request.path != '/register/' %}
+                <p id="login-message">Log in <a href="{% url 'login' %}">here</a> please</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    </main>
+    
+    <footer>
+      
+    </footer>
+
+   
+
+
+</body>
+</html>

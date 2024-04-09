@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add a Sale</h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form id="saleForm" method="post">
+
+    {% csrf_token %}
+
+    <fieldset>
+        <legend>Sales Information:</legend>
+
+
+        {{ form.as_p }}
+
+         
+    </fieldset>
+
+    <button type="button" id="addProduct">Add Product</button>
+    <button type="submit"> Save </button>
+</form>
+
+<h2><a href="{% url 'index' %}">Return to home page</a></h2>
+
+
+
+{% endblock %}

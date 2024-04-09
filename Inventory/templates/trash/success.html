@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>Success</h1>
+
+<fieldset>
+<legend>This a big Success</legend>
+
+<h1><a href="{% url 'index' %}">Return to home page</a></h1>
+
+</fieldset>
+<fieldset>
+    <legend> MENU </legend>
+    
+    <h2><a href="{% url 'stock' %}"> Stock </a></h2>
+    
+    <h2><a href="{% url 'stock_view' %}"> View Stock</a></h2>
+    
+    <h2><a href="{% url 'recipes' %}"> Recipes </a></h2>
+    
+    <h2><a href="{% url 'menu' %}"> Menu </a></h2>
+    
+    
+    <h2><a href="{% url 'sales' %}"> Sales</a></h2>
+    
+    <h2><a href="{% url 'day_sales' %}"> Sales of the day </a></h2>
+
+</fieldset>
+
+{% endblock %}

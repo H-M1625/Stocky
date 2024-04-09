@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create Meal </h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <fieldset>
+        <legend>Meal Information:</legend>
+        {{ form.as_p }}
+        <p>Production Price: <span id="production_price"></span>€</p>
+    </fieldset>
+
+    <button type="submit"> Save </button>
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var recipeDropdown = document.getElementById('id_recipe');
+        var productionPrices = {{ production_prices|safe }};
+
+        recipeDropdown.addEventListener('change', function() {
+            var recipeId = this.value;
+            if (recipeId in productionPrices) {
+                var productionPrice = productionPrices[recipeId];
+                document.getElementById('production_price').innerText = productionPrice;
+            } else {
+                document.getElementById('production_price').innerText = 'N/A';
+            }
+        });
+    });
+</script>
+
+{% endblock %}

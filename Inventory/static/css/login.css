@@ -1,0 +1,113 @@
+/* CSS for the login form */
+
+.login-form {
+    color: #333; /* Text color */
+    background-color: #f0f0f0; /* Background color */
+    padding: 20px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text */
+    margin: 100px auto; /* Center horizontally */
+    max-width: 300px; /* Maximum width */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    
+}
+
+.login-form a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.login-form a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.login-form button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    margin-top: 8px
+}
+
+.login-form button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+.login-form p {
+    margin-top: 10px
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 50px); /* Adjust width of form fields */
+    padding: 10px; /* Padding for form fields */
+    margin-top: 10px; /* Add space between text and form fields */
+    margin-bottom: 20px; /* Add space between form fields */
+    border-radius: 5px; /* Rounded corners for form fields */
+    border: 1px solid #ccc; /* Border color for form fields */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+
+
+/* CSS for the register form */
+
+/* Form layout */
+.register-form {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.register-form legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.register-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] 
+{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.register-form button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background-color: #0056b3;
+}
+
+
+.register-form a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.register-form p {
+    margin-top: 15px
+}

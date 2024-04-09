@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>This is all the Recipe in the database  </legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in recipes %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td> </td>
+                   
+                    <td>
+                        <button type="button"> <a href="{% url 'recipe_edit' pk=item.pk %}"> Details </a> </button>
+                        <button type="button"> <a href="{% url 'recipe_delete' pk=item.pk %}"> Delete this recipe </a></button> 
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+    </fieldset>
+</form>
+
+<h2><a href="{% url 'index' %}">Return to home page</a></h2>
+{% endblock %}
+
+

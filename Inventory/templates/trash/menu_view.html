@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>This is the Menu and all the mail avaible </legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Production cost</th>
+                    <th>Sale price</th>
+                    <th>Gain</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in meals %}
+                <tr>
+                    <td>{{ item.recipe }}</td>
+                    <td>{{ item.production_price }}</td>
+                    <td>{{ item.sale_price }}</td>
+                    <td>{{ item.gain }}</td>
+                    <td>
+                        <a href="{% url 'menu_delete' pk=item.pk %}">Delete</a>
+                        <a href="{% url 'menu_edit' pk=item.pk %}">Edit</a>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+    </fieldset>
+</form>
+
+<h2><a href="{% url 'index' %}">Return to home page</a></h2>
+{% endblock %}

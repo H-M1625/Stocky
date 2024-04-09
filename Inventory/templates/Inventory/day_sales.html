@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="full-list">
+    <h2> Sales of the day </h2>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="scrollable-table">
+        <table id="sales-table">
+            <tr class="sticky-row">
+                <th> Name </th>
+                <th> Quantity </th>
+               
+                <th> Total Production Price </th>
+                <th> Total Sale Price </th>
+                <th> Total Gain </th>
+                <th> Sale Time </th>
+            </tr>
+
+            {% for item in all_sales %}
+                <tr>
+                    <td> {{item.meal}}</td>
+                    <td> {{item.quantity}}</td>
+                    <td> {{item.total_production_price}}</td> 
+                    <td> {{item.total_sale_price}}</td>
+                    <td> {{item.total_gain}}</td>
+                    <td> {{item.sale_time}}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td> Total </td>
+                <td> {{totals.quantity}}</td>
+                <td> {{totals.total_production_price|floatformat:"2"}}</td>
+                <td> {{totals.total_sale_price|floatformat:"2"}}</td>
+                <td> {{totals.total_gain|floatformat:"2"}}</td>
+                <td> </td>
+            </tr>
+        </table>
+    </div>
+        
+   
+</form>
+</div>
+
+<div class="button-container">
+<form action="{% url 'generate_pdf' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Generate PDF</button>
+</form>
+
+<form action="{% url 'reset_database' %}" method="post"> 
+    {% csrf_token %}
+<button type="submit" class="reset-button" onclick="return confirm('Are you sure you want to reset the database?')"> Reset database </button>
+</form>
+</div>
+
+
+<h2 class="return-link"><a href="{% url 'sales' %}">Return to Sales</a></h2>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create Recipe</h1>
+
+<form id="recipeForm" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Recipe name:</legend>
+        {{ recipe_form.as_p }}
+    </fieldset>
+
+    <fieldset id="ingredientsFieldset">
+        <legend>Ingredients:</legend>
+        
+        <div id="ingredientsContainer">
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="form-row">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+
+    <button type="button" id="addIngredient">Add ingredient</button>
+    <button type="submit" name="save">Save</button>
+</form>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addIngredientButton = document.getElementById('addIngredient');
+    const ingredientsContainer = document.getElementById('ingredientsContainer');
+    const maxIngredients = 100;
+    let ingredientCount = {{ formset.total_form_count }};
+    const managementForm = document.querySelector('#id_recipeingredient_set-TOTAL_FORMS');
+
+    addIngredientButton.addEventListener('click', function() {
+        if (ingredientCount < maxIngredients) {
+            const newIngredientIndex = ingredientCount;
+            const newIngredientForm = document.createElement('div');
+            const formHtml = "{{ formset.empty_form.as_p|safe|escapejs }}".replace(/__prefix__/g, newIngredientIndex);
+            newIngredientForm.innerHTML = `
+                <div class="form-row">
+                    ${formHtml}
+                </div>
+            `;
+            // Set name and id attributes for stock field
+            newIngredientForm.querySelector('select[name*="stock"]').setAttribute('name', `recipeingredient_set-${newIngredientIndex}-stock`);
+            newIngredientForm.querySelector('select[name*="stock"]').setAttribute('id', `id_recipeingredient_set-${newIngredientIndex}-stock`);
+            // Set name and id attributes for quantity field
+            newIngredientForm.querySelector('input[name*="quantity"]').setAttribute('name', `recipeingredient_set-${newIngredientIndex}-quantity`);
+            newIngredientForm.querySelector('input[name*="quantity"]').setAttribute('id', `id_recipeingredient_set-${newIngredientIndex}-quantity`);
+            ingredientsContainer.appendChild(newIngredientForm);
+            ingredientCount++;
+
+            // Update TOTAL_FORMS field in management form
+            managementForm.setAttribute('value', ingredientCount);
+        } else {
+            alert('You cannot add more than 100 ingredients.');
+        }
+    });
+});
+
+
+</script>
+{% endblock %}

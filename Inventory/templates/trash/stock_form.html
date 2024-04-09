@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create Stock</h1>
+
+<form method="post" >
+    {% csrf_token %}
+
+    <fieldset>
+        <legend>Ingredients Information:</legend>
+        {{ stock_form.as_p }}
+
+        <button type="submit"> Save </button>
+    </fieldset>
+
+ 
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="content-sec">
+    
+<form id="saleForm" method="post">
+    {% csrf_token %}
+    <h2>  Add a Sale  </h2>
+   
+        {{ formset.management_form }}
+        {% for form in formset %}
+        <div class="productFields">
+             {{ form.as_p }}
+            
+
+        </div>
+{% endfor %}
+
+        <!-- Container for additional product fields -->
+        <div id="additionalProductFields"></div>
+
+
+    <button type="button" id="addProduct">Add Product</button>
+
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    <button type="submit">Save</button>
+</form>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+$("#addProduct").click(function(){
+    const formCount = $('#saleForm .productFields').length;  // Calculate form count
+    const formHtml = '{{ formset.empty_form.as_p|safe|escapejs }}'.replace(/__prefix__/g, formCount);
+    const newProductForm = document.createElement('div');
+    newProductForm.innerHTML = `
+        <div class="productFields">
+            ${formHtml}
+            
+        </div>
+    `;
+
+    // Adjust form field names and IDs
+    newProductForm.querySelectorAll('[name]').forEach(field => {
+        const newName = field.getAttribute('name').replace(/form-\d+-/g, `form-${formCount}-`);
+        field.setAttribute('name', newName);
+        field.setAttribute('id', field.getAttribute('id').replace(/id_form-\d+-/g, `id_form-${formCount}-`));
+    });
+
+    $("#additionalProductFields").append(newProductForm);
+
+    // Update TOTAL_FORMS field in management form
+    const managementForm = document.getElementById('id_form-TOTAL_FORMS');
+    const totalForms = parseInt(managementForm.value) + 1;
+    managementForm.value = totalForms;
+
+    
+});
+
+
+</script>
+
+{% endblock %}

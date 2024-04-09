@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    
+ 
+       <h2>{{ recipes }}</h2>
+
+    
+
+       <table>
+       {% for detail in details %}
+       <tr>
+       {% if form.instance.id == detail.id %}
+
+       {% include 'Inventory/add_ingredient.html' %}
+       {% else %}
+       
+       <td> <p>{{ detail.stock }}____</p> </td>
+       <td> <p>{{ detail.quantity }} required for this recipe</p> </td>
+       <div class="form-buttons">
+       <td>
+        <button formnovalidate name="edit"  value="{{ detail.id }}"> Edit</button>
+       <button formnovalidate name="delete"  value="{{ detail.id }}" onclick="return confirm('Are you sure you want to delete this ingredient?')"  class="red-button"> Delete ingredient</button>
+    </td>
+    </div> 
+
+       {% endif %}
+
+       </tr>
+       {% endfor %}
+      
+    </table>
+    
+    {% if not form.instance.id %}
+    <fieldset>  
+        <legend> <h4> Add a new Ingredient </h4>  </legend>
+       {% include 'Inventory/add_ingredient.html' %}
+    </fieldset> 
+       {% endif %}
+
+    
+</form>
+
+
+
+<h2 class="return-link"><a href="{% url 'recipes' %}">Return to recipes</a></h2>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,287 @@
+.content-section {
+    display: inline-block;
+     vertical-align: top;
+     margin-right: 60px; /* Add some spacing between sections */
+     margin-bottom: 60px;
+     width: 400px;
+     
+   
+ }
+ 
+ 
+ /* Form inputs */
+ form input[type="text"],
+ form input[type="number"],
+ form select {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+ }
+ 
+ /* Form buttons */
+ form button {
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     background-color: #007bff;
+     color: #fff;
+     cursor: pointer;
+ }
+ 
+ form button:hover {
+     background-color: #0056b3;
+ }
+ 
+ 
+ .content-section form {
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     padding: 30px;
+ 
+     max-width: 500px; /* Adjust max-width as needed */
+     margin: 0 auto; /* Center the form horizontally */
+     
+ }
+ 
+ .content-section form h2 {
+     text-align: center; /* Center the heading */
+     margin-bottom: 20px; /* Add space below the heading */
+ }
+ 
+ .content-section form button[type="submit"] {
+     display: block; /* Make the button a block element */
+     width: 100%; /* Make the button full width */
+     padding: 10px; /* Adjust padding as needed */
+     border: none;
+     border-radius: 5px;
+     background-color: #007bff;
+     color: #fff;
+     cursor: pointer;
+     margin-top: 20px; /* Add space above the button */
+ }
+ 
+ .content-section form button[type="submit"]:hover {
+     background-color: #0056b3;
+ }
+ 
+ 
+ 
+ .content-list {
+     max-width: 800px; /* Set a maximum width for the container */
+     padding-left: 10px;
+     border: 1px solid #ccc; /* Add border */
+     border-radius: 5px; /* Add border radius */
+    }
+
+   
+ 
+ .content-list h2 {
+     text-align: center; /* Center the heading */
+     margin-bottom: 20px; /* Add some space below the heading */
+     
+    }
+    
+ 
+ .content-list .scrollable-table {
+     border: 1px solid #ccc; /* Add border */
+     border-radius: 5px; /* Add border radius */
+     overflow-y: auto; /* Enable vertical scroll */
+     max-height: 300px; /* Set maximum height for scrollable area */
+ }
+ 
+ .content-list .scrollable-table table {
+     width: 100%; /* Make table full width */
+     border-collapse: collapse; /* Collapse table borders */
+ }
+ 
+ .content-list .scrollable-table th,
+ .content-list .scrollable-table td {
+     padding: 8px; /* Add padding */
+     border: 1px solid #ccc; /* Add border */
+ }
+ 
+ 
+ .content-list a {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    color: #fff;
+    
+   }
+   
+
+
+.btn-primary {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px; 
+
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+  
+.sticky-row {
+    position: sticky;
+    top: 0;
+    background-color: #bebaba; /* Adjust background color as needed */
+    z-index: 1; /* Ensure the row stays above other content */
+    padding: 12px;
+}
+
+ 
+.full-list {
+    max-width: 900px; /* Set a maximum width for the container */
+    padding-left: 10px;
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+   }
+
+  
+
+.full-list h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    
+   }
+   
+
+.full-list .scrollable-table {
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    overflow-y: auto; /* Enable vertical scroll */
+    max-height: 650px; /* Set maximum height for scrollable area */
+}
+
+.full-list .scrollable-table table {
+    width: 100%; /* Make table full width */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.full-list .scrollable-table th,
+.full-list .scrollable-table td {
+    padding: 8px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+}
+
+
+.full-list a {
+   text-align:left; /* Center the heading */
+   margin-bottom: 20px; /* Add some space below the heading */
+   color: #fff;
+   
+  }
+
+
+
+
+.full-list .scrollable-table td .delete-button {
+    background-color: #de3214; /* Red background color for delete button */
+    color: #fff; /* Text color */
+}
+
+.full-list .scrollable-table td .delete-button:hover {
+    background-color: #942c07;
+}
+
+.red-button {
+    background-color: #de3214; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius */
+    padding: 8px 12px; /* Add padding */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s; /* Add transition effect */
+}
+
+.red-button:hover {
+    background-color: #942c07; /* Darken background color on hover */
+}
+
+.return-link a {
+    color: #0d5aac; /* Link text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Add bold font weight */
+    font-size: 20px; /* Set font size */
+    transition: color 0.3s, border-bottom 0.3s; /* Add transition effect */
+    border-bottom: 2px solid transparent; /* Add transparent border bottom */
+}
+
+
+.return-link a:hover {
+    color: #0056b3; /* Darken text color on hover */
+    border-bottom-color: #0056b3; /* Add border bottom color on hover */
+}
+
+
+.button-container {
+    margin-top: 20px; /* Adjust the top margin to position the buttons lower */
+}
+
+.button-container form {
+    display: inline-block; /* Display forms inline */
+    margin-right: 10px; /* Add margin between forms */
+}
+
+.button-container button {
+    padding: 10px 20px; /* Add padding to increase button size */
+    font-size: 16px; /* Increase font size */
+}
+
+.reset-button {
+    background-color: #de3214; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius */
+}
+
+.reset-button:hover {
+    background-color: #942c07; /* Darker red background color on hover */
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    grid-gap: 20px; /* Gap between grid items */
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: 50px; /* Add margin to move the buttons lower */
+}
+
+.details {
+    padding: 15px 30px; /* Add padding to the buttons */
+    font-size: 16px; /* Adjust font size */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    width: 200px; /* Set fixed width for all buttons */
+    height: 50px;
+
+}
+
+.details:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+
+
+
+.index h1, p {
+
+    margin: 0; /* Remove default margins */
+    padding-bottom: 10px;
+    text-align: center; /* Center align the text */
+}

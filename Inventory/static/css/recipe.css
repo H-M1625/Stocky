@@ -1,0 +1,160 @@
+
+
+
+.recipe-list h3 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+
+
+.recipe-list th,
+.recipe-list td {
+    padding: 8px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+}
+
+.recipe-list a {
+    display: block; /* Ensure link takes up full width */
+    text-align: center; /* Center the link */
+    margin-top: 10px; /* Add some space above the link */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.recipe-list a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.recipe-list button {
+    padding: 5px 10px; /* Add padding */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 5px; /* Add margin between buttons */
+}
+
+.recipe-list button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+
+
+
+
+  
+ .content-sec form {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px;
+
+    max-width: 500px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    
+}
+
+.content-sec form h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
+.content-sec form button[type="submit"] {
+    display: block; /* Make the button a block element */
+    width: 100%; /* Make the button full width */
+    padding: 10px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px; /* Add space above the button */
+}
+
+.content-sec form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+/* styles.css */
+
+
+/* styles.css */
+
+.recipe-list {
+    padding-left: 10px;
+    
+    max-width: 700px; /* Set a maximum width for the container */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    display: inline-block;
+    
+}
+
+.recipe-list table {
+    width: 100%; /* Make table full width */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.content-sec {
+    float: inline-start;
+    margin-right: 50px;
+    vertical-align: top;
+    width: calc(35% - 50px); /* Set width to 50% of the container minus margin */
+}
+
+
+
+ 
+.recipe-list .scrollable-table {
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    overflow-y: auto; /* Enable vertical scroll */
+    max-height: 400px; /* Set maximum height for scrollable area */
+}
+
+.recipe-list .scrollable-table table {
+    width: 100%; /* Make table full width */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.recipe-list .scrollable-table th,
+.recipe-list .scrollable-table td {
+    padding: 18px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+}
+
+
+.recipe-list .scrollable-table td .details-button,
+.recipe-list .scrollable-table td .delete-button {
+    padding: 8px 15px; /* Adjust padding as needed */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.recipe-list .scrollable-table td .delete-button {
+    background-color: #de3214; /* Red background color for delete button */
+    color: #fff; /* Text color */
+}
+
+.recipe-list .scrollable-table td .details-button:hover {
+    background-color: #0056b3;
+}
+
+.recipe-list .scrollable-table td .delete-button:hover {
+    background-color: #942c07;
+}
+
+
+/* Display buttons inline */
+.form-buttons form {
+    display: inline;
+}
+
+
+.buttons form {
+    display: inline;
+}

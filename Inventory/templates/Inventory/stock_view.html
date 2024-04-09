@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="full-list">
+<form method="post">
+    {% csrf_token %}
+
+        <h2> This is the entire Inventory  </h2>
+<div class="scrollable-table"> 
+<table>
+ 
+    <tr class="sticky-row" >
+        <th> Name </th>
+        <th> Quantity </th>
+        <th> Measurement unit </th>
+        <th> Buying price </th>
+        <th> Price per unit </th>
+        <th> Action </th>
+    </tr>
+    
+   
+    
+
+    
+    {% for item in stock %}
+        <tr>
+            {% if form.instance.id == item.id %}
+            {% include 'Inventory/save.html' %}
+            {% else %}
+            <td> {{item.food}}</td>
+            <td> {{item.quantity}}</td>
+            <td> {{item.measurement_unit}}</td>
+            <td> {{item.buying_price}}</td> 
+            <td> {{item.price_per_unit}}</td>
+            <td>
+                <button formnovalidate name="edit" value="{{ item.id }}"> Edit</button>
+                <button formnovalidate name="delete" value="{{ item.id }}"  class="delete-button"> Delete</button>
+                
+
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    
+</table>
+</div>
+
+</form>
+</div>
+
+{% endblock %}

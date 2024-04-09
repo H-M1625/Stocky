@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="content-sec">
+<form id="recipeForm" method="post">
+    {% csrf_token %}
+    <h2>  Create a Recipe  </h2>
+    
+        {{ recipe_form.as_p }}
+  
+
+    
+        <h3>Ingredients</h3>
+        <div id="ingredientsContainer">
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="form-row">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+        </div>
+    
+
+    <button type="button" id="addIngredient">Add ingredient</button>
+    <button type="submit" name="save">Save</button>
+</form>
+</div>
+
+<div class="recipe-list">
+<form method="post">
+    {% csrf_token %}
+
+        <h3>Recipes</h3>
+        <div class="scrollable-table">
+        <table>
+            <thead>
+                <tr class="sticky-row">
+                    <th>Name</th>
+                    <th></th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in recipes %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td> </td>
+                   
+                    <td>
+                        <form class="recipe-form" data-pk="{{ item.pk }}">
+                        </form>
+
+                    <div class="form-buttons">
+                        <form action="{% url 'recipe_edit' pk=item.pk %}" method="get">
+                            <button type="submit" class="details-button">Details</button>
+                        </form>
+
+                        <form action="{% url 'recipe_delete' pk=item.pk %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="pk" value="{{ item.pk }}">
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this recipe?')" class="delete-button">Delete this recipe</button>
+                        </form>
+                    </div>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+    </div>
+    
+</form>
+</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addIngredientButton = document.getElementById('addIngredient');
+    const ingredientsContainer = document.getElementById('ingredientsContainer');
+    const maxIngredients = 100;
+    let ingredientCount = {{ formset.total_form_count }};
+    const managementForm = document.querySelector('#id_recipeingredient_set-TOTAL_FORMS');
+
+    addIngredientButton.addEventListener('click', function() {
+        if (ingredientCount < maxIngredients) {
+            const newIngredientIndex = ingredientCount;
+            const newIngredientForm = document.createElement('div');
+            const formHtml = "{{ formset.empty_form.as_p|safe|escapejs }}".replace(/__prefix__/g, newIngredientIndex);
+            newIngredientForm.innerHTML = `
+                <div class="form-row">
+                    ${formHtml}
+                </div>
+            `;
+            // Set name and id attributes for stock field
+            newIngredientForm.querySelector('select[name*="stock"]').setAttribute('name', `recipeingredient_set-${newIngredientIndex}-stock`);
+            newIngredientForm.querySelector('select[name*="stock"]').setAttribute('id', `id_recipeingredient_set-${newIngredientIndex}-stock`);
+            // Set name and id attributes for quantity field
+            newIngredientForm.querySelector('input[name*="quantity"]').setAttribute('name', `recipeingredient_set-${newIngredientIndex}-quantity`);
+            newIngredientForm.querySelector('input[name*="quantity"]').setAttribute('id', `id_recipeingredient_set-${newIngredientIndex}-quantity`);
+            ingredientsContainer.appendChild(newIngredientForm);
+            ingredientCount++;
+
+            // Update TOTAL_FORMS field in management form
+            managementForm.setAttribute('value', ingredientCount);
+        } else {
+            alert('You cannot add more than 100 ingredients.');
+        }
+    });
+});
+
+
+
+
+</script>
+{% endblock %}

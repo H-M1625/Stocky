@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-section">
+
+    <form method="post">
+        {% csrf_token %}
+
+ <h2>  Create a new product </h2>
+        
+            {{ create_form.as_p }}
+            <button type="submit">Save</button>
+        
+    </form>
+</div>
+
+<div class="content-section">
+    <form method="post">
+        {% csrf_token %}
+        <h2> Add quantity to a product </h2>
+        
+    
+            {{ update_form.as_p }}
+            <button type="submit">Add quantity</button>
+        
+    </form>
+</div>
+
+<div class="content-list">
+    <h2> Inventory </h2>
+    
+        <div class="scrollable-table">
+            <table>
+                <thead>
+                    <tr class="sticky-row" >
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Measurement unit</th>
+                        <th>Buying price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in stock %}
+                    <tr>
+                        <td>{{ item.food }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.measurement_unit }}</td>
+                        <td>{{ item.buying_price }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+<form action="{% url 'stock_view' %}" method="get">
+
+<button type="submit"  class="btn btn-primary" > Full Inventory</button>
+    
+</form>
+
+</div>
+{% endblock %}

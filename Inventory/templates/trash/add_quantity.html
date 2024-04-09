@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Add Quantity</h1>
+<form method="post">
+{% csrf_token %}
+<fieldset>
+    <legend>Add quantity of a selected product</legend>
+    {{ form.as_p }}
+
+    <button type="submit"> Add quantity </button>
+</fieldset>
+
+
+</form>
+
+{% endblock %}
+

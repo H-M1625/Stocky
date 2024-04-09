@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="index">
+<h1> Welcome to Stocky</h1>
+<p> Your Pathway to Effortless Stock Management</p>
+</div>
+
+<div class="button-grid">
+    <form action="{% url 'stock' %}" method="get">
+        <button type="submit" class="details">Add Product</button>
+    </form>
+    <form action="{% url 'stock_view' %}" method="get">
+        <button type="submit" class="details">Full Inventory</button>
+    </form>
+    <form action="{% url 'recipes' %}" method="get">
+        <button type="submit" class="details">Recipes</button>
+    </form>
+    <form action="{% url 'menu' %}" method="get">
+        <button type="submit" class="details">Menu</button>
+    </form>
+    <form action="{% url 'sales' %}" method="get">
+        <button type="submit" class="details">Sales</button>
+    </form>
+    <form action="{% url 'day_sales' %}" method="get">
+        <button type="submit" class="details">Sales of the day</button>
+    </form>
+</div>
+
+
+  
+{% endblock %}
