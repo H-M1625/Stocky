@@ -27,7 +27,7 @@ SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['https://13.60.59.138/']
+ALLOWED_HOSTS = []
 
 #bullshit ass security
 
