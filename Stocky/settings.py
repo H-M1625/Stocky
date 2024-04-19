@@ -27,7 +27,7 @@ SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "localhost", "13.60.59.138", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0", "localhost", "13.60.59.138", "127.0.0.1", "*"]
 
 #bullshit ass security
 
