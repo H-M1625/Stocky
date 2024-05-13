@@ -34,7 +34,7 @@
         {% endblock login %}
 
 
-        {% if user.is_authenticated %}
+        
 
         
  
@@ -47,11 +47,6 @@
           </form>
 
 
-        {% else %}
-            {% if request.path != '/login/' and request.path != '/register/' %}
-                <p id="login-message">Log in <a href="{% url 'login' %}">here</a> please</p>
-            {% endif %}
-        {% endif %}
     </div>
     </main>
     
