@@ -1,1 +1,1 @@
-web : gunicorn Stocky.wsgi
+web : gunicorn stocky.wsgi
