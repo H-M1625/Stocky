@@ -189,20 +189,5 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ.get('AWS_STORAGE_BUCKE
 AWS_S3_FILE_OVERWRITE = False
 
 
-# Django 4.2 >
-
-STORAGES = {
-
-    # Media file (image) management   
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-    },
-    
-    # CSS and JS file management
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
 
 django_heroku.settings(locals())
