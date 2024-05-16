@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*", "www.stocky.site", "stocky.site"
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -154,7 +155,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -198,7 +200,7 @@ STORAGES = {
     
     # CSS and JS file management
     "staticfiles": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
