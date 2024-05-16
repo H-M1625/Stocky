@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from .secrets import DATABASES, SECRET_KEY, DEBUG, AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_STORAGE_BUCKET_NAME
+from .secrets import DATABASES, SECRET_KEY, AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_STORAGE_BUCKET_NAME, PASSWORD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,8 +93,23 @@ DATABASES = {
 
 """
 
+DATABASES = {
+    
+    'default': {
 
-DATABASES = DATABASES 
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'inventory_1',
+
+        'USER': 'henry_morgan',
+
+        'PASSWORD': PASSWORD,
+
+        'HOST': 'database-1.cdqycsmokusr.eu-north-1.rds.amazonaws.com',
+
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
