@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*", "www.stocky.site", "stocky.site", "https://stocky-43e6b0b2291f.herokuapp.com/"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*", "www.stocky.site", "stocky.site", "stocky-43e6b0b2291f.herokuapp.com"]
 
 
 
@@ -154,7 +154,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
